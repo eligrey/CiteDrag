@@ -19,71 +19,71 @@
 		uriType    = text+"uri-list",
 		mozUrlType = text+"x-moz-url",
 		enabled    = false;
-			if (typeof evt.dataTransfer != "undefined") {
-				var dt = evt.dataTransfer,
-				originName = (document.title || location.hostname);
+		
+		if (typeof evt.dataTransfer != "undefined") {
+			var dt = evt.dataTransfer,
+			originName = (document.title || location.hostname);
+			
+			// If website already uses CiteDrag (or offers a text/x-original- data type), restore data to original state if given
+			if (dt.getData(text+"x-original-html"))
+				dt.setData(htmlType, dt.getData(text+"x-original-html"));
+			else // no text/x-original-html, set it
+				dt.setData(text+"x-original-html", dt.getData(htmlType));
+			
+			if (dt.getData(text+"x-original-plain"))
+				dt.setData(textType, dt.getData(text+"x-original-plain"));
+			else // no text/x-original-plain, set it
+				dt.setData(text+"x-original-plain", dt.getData(textType));
+			
+			// WebKit thinks a page shouldn't be allowed to access dt.getData of a drag originating FROM THE SAME PAGE
+			// https://bugs.webkit.org/show_bug.cgi?id=23695
+			
+			var
+			textData = dt.getData(textType),
+			htmlData = dt.getData(htmlType),
+			uriList  = dt.getData(uriType),
+			mozUrl   = dt.getData(mozUrlType);
+			
+			if (uriList) { // dragged an image or link
+			
+				if (mozUrl) { // mozilla link list format; supports #comments
+					var uriCitation = "\n# via " + originName + " ( " + loc + " )",
+					uriList = mozUrl
+						.replace(/\n#.*/g, "") // remove comments
+						.split(/\n/).join(uriCitation) + uriCitation; // add citations as comments
+					dt.setData(mozUrlType, uriList);
+					/* example:
+					http://foo.example/
+					http://bar.example/
 				
-				// If website already uses CiteDrag (or offers a text/x-original- data type), restore data to original state if given
-				if (dt.getData(text+"x-original-html"))
-					dt.setData(htmlType, dt.getData(text+"x-original-html"));
-				else // no text/x-original-html, set it
-					dt.setData(text+"x-original-html", dt.getData(htmlType));
-				
-				if (dt.getData(text+"x-original-plain"))
-					dt.setData(textType, dt.getData(text+"x-original-plain"));
-				else // no text/x-original-plain, set it
-					dt.setData(text+"x-original-plain", dt.getData(textType));
-				
-				// WebKit thinks a page shouldn't be allowed to access dt.getData of a drag originating FROM THE SAME PAGE
-				// https://bugs.webkit.org/show_bug.cgi?id=23695
-				
-				var
-				textData = dt.getData(textType),
-				htmlData = dt.getData(htmlType),
-				uriList  = dt.getData(uriType),
-				mozUrl   = dt.getData(mozUrlType);
-				
-				if (uriList) { // dragged an image or link
-				
-					if (mozUrl) { // mozilla link list format; supports #comments
-						var uriCitation = "\n# via " + originName + " ( " + loc + " )",
-						uriList = mozUrl
-							.replace(/\n#.*/g, "") // remove comments
-							.split(/\n/).join(uriCitation) + uriCitation; // add citations as comments
-						dt.setData(mozUrlType, uriList);
-						/* example:
-						http://foo.example/
-						http://bar.example/
-					
-						becomes:
-						http://foo.example/
-						# via site ( uri )
-						http://bar.example/
-						# via site ( uri )
-						*/
-					}
-					
-					if (htmlData)
-						dt.setData(htmlType, // link via <a href={uri}>site</a>
-							htmlData + ' via <a href="' +loc + '" title="' + loc.hostname + '">' + originName + "</a>"
-						);
-					
-					if (textData)
-						dt.setData(textType, // uri via site ( uri )
-							textData + " via " + originName+' ( '+loc+' )'
-						);
-				} else if (textData) { // dragged html or plain text
-					
-					if (htmlData)
-						dt.setData(htmlType, // <blockquote.../> - <a href={uri}>site</a>
-							'<blockquote cite="'+loc+'">' + htmlData + '</blockquote> \u2015 <a title="' +location.host + '" href="' + loc + '">' + originName + "</a>"
-						);
-					
-					if (textData)
-						dt.setData(textType, // "content" - site ( uri )
-							"\u201C" + textData + "\u201D\n	\u2015 " + originName + " ( " + loc + " )"
-						);
+					becomes:
+					http://foo.example/
+					# via site ( uri )
+					http://bar.example/
+					# via site ( uri )
+					*/
 				}
+				
+				if (htmlData)
+					dt.setData(htmlType, // link via <a href={uri}>site</a>
+						htmlData + ' via <a href="' +loc + '" title="' + loc.hostname + '">' + originName + "</a>"
+					);
+				
+				if (textData)
+					dt.setData(textType, // uri via site ( uri )
+						textData + " via " + originName+' ( '+loc+' )'
+					);
+			} else if (textData) { // dragged html or plain text
+				
+				if (htmlData)
+					dt.setData(htmlType, // <blockquote.../> - <a href={uri}>site</a>
+						'<blockquote cite="'+loc+'">' + htmlData + '</blockquote> \u2015 <a title="' +location.host + '" href="' + loc + '">' + originName + "</a>"
+					);
+				
+				if (textData)
+					dt.setData(textType, // "content" - site ( uri )
+						"\u201C" + textData + "\u201D\n	\u2015 " + originName + " ( " + loc + " )"
+					);
 			}
 		}
 	}, false);
