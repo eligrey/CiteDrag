@@ -14,12 +14,12 @@ document.addEventListener("dragstart", function(evt) {
 	doc        = document,
 	loc        = location,
 	text       = "text/",
-	textType   = text+"plain",
-	htmlType   = text+"html",
-	uriType    = text+"uri-list",
-	mozUrlType = text+"x-moz-url",
-	origHtmlType = text+"x-original-html",
-	origTextType = text+"x-original-text";
+	textType   = text + "plain",
+	htmlType   = text + "html",
+	uriType    = text + "uri-list",
+	mozUrlType = text + "x-moz-url",
+	origHtmlType = text + "x-original-html",
+	origTextType = text + "x-original-text";
 	
 	if (typeof evt.dataTransfer != "undefined") {
 		var dt = evt.dataTransfer,
@@ -51,7 +51,7 @@ document.addEventListener("dragstart", function(evt) {
 				var uriCitation = "\n# via " + originName + " ( " + loc + " )",
 				uriList = mozUrl
 					.replace(/\n#.*/g, "") // remove comments
-					.split(/\n/).join(uriCitation) + uriCitation; // add citations as comments
+					.split("\n").join(uriCitation) + uriCitation; // add citations as comments
 				dt.setData(mozUrlType, uriList);
 				/* example:
 				http://foo.example/
