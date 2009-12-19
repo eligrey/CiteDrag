@@ -1,7 +1,7 @@
 /*
-* CiteDrag v0.1.0.1
+* CiteDrag v0.1
 *
-* 2009-10-01
+* 2009-07-20
 *
 * By Elijah Grey, http://eligrey.com
 *
@@ -11,17 +11,17 @@
 *   See http://eligrey.com/blog/about/license
 */
 
-var CiteDrag = (function() {
+(function() {
 	var
 	doc          = document,
 	loc          = location,
 	text         = "text/",
-	textType     = text + "plain",
-	htmlType     = text + "html",
-	uriType      = text + "uri-list",
-	mozUrlType   = text + "x-moz-url",
-	origHtmlType = text + "x-original-html",
-	origTextType = text + "x-original-text",
+	textType     = text+"plain",
+	htmlType     = text+"html",
+	uriType      = text+"uri-list",
+	mozUrlType   = text+"x-moz-url",
+	origHtmlType = text+"x-original-html",
+	origTextType = text+"x-original-text",
 	enabled      = false,
 	
 	CiteDrag = {
@@ -57,7 +57,7 @@ var CiteDrag = (function() {
 						var uriCitation = "\n# via " + originName + " ( " + loc + " )",
 						uriList = mozUrl
 							.replace(/\n#.*/g, "") // remove comments
-							.split("\n").join(uriCitation) + uriCitation; // add citations as comments
+							.split(/\n/).join(uriCitation) + uriCitation; // add citations as comments
 						dt.setData(mozUrlType, uriList);
 						/* example:
 						http://foo.example/
@@ -122,5 +122,5 @@ var CiteDrag = (function() {
 		
 		CiteDrag.enable();
 		
-		return CiteDrag;
-}());
+		this.CiteDrag = CiteDrag;
+}).call(this);
