@@ -35,7 +35,7 @@ The following is examples of when you drag various data types to various drop ar
 
 
 
-![](//in.getclicky.com/212712ns.gif)
+![Tracking image](//in.getclicky.com/212712ns.gif =1x1)
 
 
  [1]: https://developer.mozilla.org/En/DragDrop/Drag_and_Drop
