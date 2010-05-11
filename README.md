@@ -33,6 +33,11 @@ The following is examples of when you drag various data types to various drop ar
     * Example: 
         > Lorem ipsum dolor sit amet. ― [Elijah Grey][4]
 
+
+
+![](//in.getclicky.com/212712ns.gif)
+
+
  [1]: https://developer.mozilla.org/En/DragDrop/Drag_and_Drop
  [2]: http://code.eligrey.com/citedrag/test.html
  [3]: http://example.com/
