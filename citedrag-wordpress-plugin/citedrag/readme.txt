@@ -1,8 +1,8 @@
 === CiteDrag ===
-Contributors: Elijah Grey
+Contributors: Eli Grey
 Tags: citation, cite, reference, source, javascript, drag, drop, copy, paste, html5, citedrag
 Requires at least: 2.6
-Tested up to: 2.8.2
+Tested up to: 2.9.2
 Stable tag: trunk
 
 Adds citations to content dragged or copy/pasted off your website using the HTML5 drag and drop API.

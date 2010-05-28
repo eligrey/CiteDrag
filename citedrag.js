@@ -3,7 +3,7 @@
 *
 * 2009-10-01
 *
-* By Elijah Grey, http://eligrey.com
+* By Eli Grey, http://eligrey.com
 *
 * Adds citations to dragged content using the HTML5 drag & drop API.
 *

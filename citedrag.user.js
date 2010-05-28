@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            CiteDrag
 // @version         0.1
-// @author          Elijah Grey, http://eligrey.com
+// @author          Eli Grey, http://eligrey.com
 // @namespace       http://eligrey.com/blog/projects/citedrag/#userscript
 // @description     Adds citations to dragged content.
 // @license         GPL v3 and X11/MIT license - http://eligrey.com/about/license/
