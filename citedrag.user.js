@@ -9,6 +9,8 @@
 // @include         *
 // ==/UserScript==
 
+/*! @source http://purl.eligrey.com/github/CiteDrag/blob/master/citedrag.user.js*/
+
 document.addEventListener("dragstart", function(evt) {
 	var
 	doc        = document,

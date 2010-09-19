@@ -11,6 +11,8 @@
 *   See http://eligrey.com/blog/about/license
 */
 
+/*! @source http://purl.eligrey.com/github/CiteDrag/blob/master/citedrag.js*/
+
 var CiteDrag = (function() {
 	var
 	doc          = document,
