@@ -7,7 +7,7 @@
 *
 * Adds citations to dragged content using the HTML5 drag & drop API.
 *
-* License: GNU GPL v3 and the X11/MIT license
+* Licensed under the X11/MIT License
 *   See http://eligrey.com/blog/about/license
 */
 

@@ -4,7 +4,7 @@
 // @author          Eli Grey, http://eligrey.com
 // @namespace       http://eligrey.com/blog/projects/citedrag/#userscript
 // @description     Adds citations to dragged content.
-// @license         GPL v3 and X11/MIT license - http://eligrey.com/about/license/
+// @license         X11/MIT
 // @archive         http://code.eligrey.com/citedrag/
 // @include         *
 // ==/UserScript==
