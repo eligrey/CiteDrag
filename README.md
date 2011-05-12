@@ -31,11 +31,11 @@ The following is examples of when you drag various data types to various drop ar
   * Example:  “Lorem ipsum dolor sit amet.” ― Elijah Grey ( http://eligrey.com/ )
 * Drag formatted or non-formatted text into a rich text input: The dragged text goes into a <blockquote cite=”{**source URI**}”> and after the blockquote is ― {**clickable link to source page with title as text**} 
     * Example: 
-        > Lorem ipsum dolor sit amet. ― [Elijah Grey][4]
+        > Lorem ipsum dolor sit amet. ― [Eli Grey][4]
 
 
 
-![Tracking image](//in.getclicky.com/212712ns.gif =1x1)
+![Tracking image](//in.getclicky.com/212712ns.gif)
 
 
  [1]: https://developer.mozilla.org/En/DragDrop/Drag_and_Drop
