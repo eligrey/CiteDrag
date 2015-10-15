@@ -7,8 +7,8 @@
 *
 * Adds citations to dragged content using the HTML5 drag & drop API.
 *
-* Licensed under the X11/MIT License
-*   See http://eligrey.com/blog/about/license
+* Licensed under the MIT License
+*   See https://github.com/eligrey/CiteDrag/blob/master/LICENSE.md
 */
 
 /*! @source http://purl.eligrey.com/github/CiteDrag/blob/master/citedrag.js*/
